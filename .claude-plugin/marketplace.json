@@ -1,0 +1,14 @@
+{
+  "name": "akhiakl-skills",
+  "owner": { "name": "Akhil K", "url": "https://github.com/akhiakl" },
+  "metadata": { "description": "Agent Skills by Akhil K" },
+  "plugins": [
+    {
+      "name": "web-design-craft",
+      "description": "Distinctive, fast, responsive, accessible web design and build workflow.",
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/web-design-craft"]
+    }
+  ]
+}
