@@ -1,7 +1,7 @@
 {
-  "name": "web-design-craft",
+  "name": "design-craft",
   "version": "1.0.0",
-  "description": "Designs, builds, reviews, audits and polishes distinctive, fast, responsive, accessible web UI. Reads the project first, asks only what it must, avoids AI-template looks, writes real copy, ships a slop linter and contrast checker, and verifies Core Web Vitals and WCAG 2.2 AA.",
+  "description": "Two design skills that share one core: web-design-craft for websites and web apps (React, Next.js, Angular, Tailwind) and mobile-design-craft for React Native and Expo apps. Reads the project first, asks only what it must, avoids AI-template looks, writes real copy, and verifies performance, accessibility and contrast with bundled scripts.",
   "author": {
     "name": "Akhil K",
     "url": "https://github.com/akhiakl"
@@ -10,14 +10,19 @@
   "repository": "https://github.com/akhiakl/skills",
   "license": "MIT",
   "keywords": [
+    "accessibility",
+    "android",
     "design",
+    "expo",
     "frontend",
-    "web",
+    "ios",
+    "mobile",
+    "nextjs",
+    "performance",
+    "react",
+    "react-native",
     "ui",
     "ux",
-    "react",
-    "nextjs",
-    "accessibility",
-    "performance"
+    "web"
   ]
 }

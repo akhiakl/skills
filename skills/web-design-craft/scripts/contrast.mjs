@@ -5,6 +5,8 @@ import { readFileSync, existsSync } from "node:fs";
 const HELP = `Usage:
   node contrast.mjs [--json] <DESIGN.md>        check every on-<name> token against <name>
   node contrast.mjs [--json] --pair <fg> <bg>   check one pair, e.g. --pair "oklch(0.2 0.01 80)" "#fafafa"
+  node contrast.mjs --hex <color> [<color>...]  convert to #rrggbb (for runtimes without oklch, e.g. React Native)
+  node contrast.mjs --hex DESIGN.md             print every DESIGN.md color token as hex
 
 Colors: oklch(L C H) with L as 0-1 or %, #rgb, #rrggbb, rgb(r, g, b).
 Thresholds: text 4.5:1, large text and UI 3:1 (WCAG 2.2 AA).
@@ -50,13 +52,13 @@ function check(name, fgS, bgS) {
   return { pair: name, fg: fgS, bg: bgS, ratio: r, AA_text: r >= 4.5, AA_large: r >= 3, AA_ui: r >= 3 };
 }
 
-let results = [];
-if (rest[0] === "--pair") {
-  if (rest.length < 3) { console.error(HELP); process.exit(1); }
-  results.push(check("pair", rest[1], rest[2]));
-} else {
-  const file = rest[0];
-  if (!existsSync(file)) { console.error(`File not found: ${file}`); process.exit(1); }
+function hex(rgb) {
+  return "#" + rgb.map((v) => {
+    const e = v <= 0.0031308 ? 12.92 * v : 1.055 * v ** (1 / 2.4) - 0.055;
+    return Math.round(Math.min(1, Math.max(0, e)) * 255).toString(16).padStart(2, "0");
+  }).join("");
+}
+function tokens(file) {
   const fm = readFileSync(file, "utf8").match(/^---\n([\s\S]*?)\n---/);
   if (!fm) { console.error("No YAML front matter found."); process.exit(1); }
   const colors = {};
@@ -67,6 +69,26 @@ if (rest[0] === "--pair") {
     const m = inColors && line.match(/^\s+([\w-]+):\s*(.+?)\s*$/);
     if (m) colors[m[1]] = m[2].replace(/^["']|["']$/g, "");
   }
+  return colors;
+}
+
+if (rest[0] === "--hex") {
+  const items = rest.length === 2 && existsSync(rest[1]) ? Object.entries(tokens(rest[1])) : rest.slice(1).map((c) => [c, c]);
+  if (!items.length) { console.error(HELP); process.exit(1); }
+  const out = items.map(([name, c]) => { const p = parse(c); return { name, input: c, hex: p ? hex(p) : null }; });
+  if (json) console.log(JSON.stringify(out, null, 2));
+  else for (const o of out) console.log(`${o.hex ?? "unparseable"}  ${o.name}`);
+  process.exit(out.some((o) => !o.hex) ? 2 : 0);
+}
+
+let results = [];
+if (rest[0] === "--pair") {
+  if (rest.length < 3) { console.error(HELP); process.exit(1); }
+  results.push(check("pair", rest[1], rest[2]));
+} else {
+  const file = rest[0];
+  if (!existsSync(file)) { console.error(`File not found: ${file}`); process.exit(1); }
+  const colors = tokens(file);
   for (const [k, v] of Object.entries(colors)) {
     if (!k.startsWith("on-")) continue;
     const base = k.slice(3);

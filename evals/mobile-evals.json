@@ -1,0 +1,74 @@
+{
+  "skill_name": "mobile-design-craft",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build a habit tracker home screen in my Expo app with today's habits and a way to mark them done.",
+      "files": [],
+      "expected_output": "Context Read, defaults or up to 5 questions, Design Plan, tokens-first screen, DESIGN.md with Platform section, verification report.",
+      "expectations": [
+        "Design Plan has OKLCH light and dark tokens, a navigation map, wireframes including an empty state, and one signature moment with a Reduce Motion fallback",
+        "Uses expo-router native tabs or stack, FlashList v2 or LegendList, Pressable and expo-haptics on completion",
+        "Icon-only controls have accessibilityLabel",
+        "slop-lint reports 0 errors on the generated files",
+        "DESIGN.md exists with a Platform section and passes contrast.mjs"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Review this screen and tell me what feels off.",
+      "files": ["evals/fixtures/mobile/slop-screen.tsx"],
+      "expected_output": "Where / Before / After / Why table, no edits.",
+      "expectations": [
+        "Flags SafeAreaView from react-native, TouchableOpacity, react-native Image, ScrollView with map, allowFontScaling false and the unlabeled icon button",
+        "Flags the purple gradient, lorem ipsum and banned copy",
+        "Flags Dimensions.get and hardcoded colors",
+        "Makes no edits"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Audit accessibility of my settings screens.",
+      "files": [],
+      "expected_output": "Scored audit with severities and an honest list of skipped device checks.",
+      "expectations": [
+        "Runs or lists tsc, expo-doctor, slop-lint and contrast",
+        "Reports missing labels, small targets, fixed text heights and contrast failures by severity",
+        "Marks VoiceOver, TalkBack and simulator checks as skipped with a reason when no device is available"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Polish my onboarding, it feels generic. It is a 4-screen swipe carousel that asks for notifications on launch.",
+      "files": [],
+      "expected_output": "Targeted polish with one line per change.",
+      "expectations": [
+        "Replaces the multi-screen carousel or justifies keeping it",
+        "Moves the notification prompt into context with pre-prompt copy using 'Turn on' and 'Not now'",
+        "Adds one signature moment and removes template gradients"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Add a settings sheet that feels right on both iPhone and Android.",
+      "files": [],
+      "expected_output": "Platform-adaptive sheet.",
+      "expectations": [
+        "Uses formSheet presentation with detents",
+        "Uses native switches or @expo/ui controls",
+        "Respects 44pt and 48dp targets and edge-to-edge insets"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Write a DESIGN.md for this app.",
+      "files": ["evals/fixtures/mobile/src/theme/colors.ts"],
+      "expected_output": "DESIGN.md extracted from code, no visual changes.",
+      "expectations": [
+        "Tokens match the fixture values (#faf8f5, #1d1a15)",
+        "Follows the Google DESIGN.md template and includes a Platform section",
+        "No source files modified"
+      ]
+    }
+  ]
+}

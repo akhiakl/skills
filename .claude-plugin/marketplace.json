@@ -9,9 +9,9 @@
   },
   "plugins": [
     {
-      "name": "web-design-craft",
+      "name": "design-craft",
       "source": "./",
-      "description": "Distinctive, fast, responsive, accessible web design and build workflow."
+      "description": "Web and mobile (React Native, Expo) design skills with a shared core, slop linter and contrast checker."
     }
   ]
 }

@@ -1,22 +1,90 @@
 [
-  { "query": "make this hero section feel less generic", "should_trigger": true },
-  { "query": "build a pricing page for my Next.js app", "should_trigger": true },
-  { "query": "review my landing page UI", "should_trigger": true },
-  { "query": "our dashboard looks like every AI app, fix it", "should_trigger": true },
-  { "query": "set up design tokens and dark mode", "should_trigger": true },
-  { "query": "pick fonts and a color palette for a bakery site", "should_trigger": true },
-  { "query": "audit this page for WCAG 2.2 and CLS", "should_trigger": true },
-  { "query": "polish the settings screen before launch", "should_trigger": true },
-  { "query": "redesign the onboarding flow in Angular", "should_trigger": true },
-  { "query": "write a DESIGN.md for this repo", "should_trigger": true },
-  { "query": "fix this useEffect infinite loop", "should_trigger": false },
-  { "query": "add Zod validation to the signup API route", "should_trigger": false },
-  { "query": "write Playwright tests for login", "should_trigger": false },
-  { "query": "design a database schema for orders", "should_trigger": false },
-  { "query": "make a logo for my startup", "should_trigger": false },
-  { "query": "create a slide deck about our roadmap", "should_trigger": false },
-  { "query": "why is my Next.js build failing on Vercel", "should_trigger": false },
-  { "query": "build a SwiftUI settings screen", "should_trigger": false },
-  { "query": "write an HTML email newsletter template", "should_trigger": false },
-  { "query": "speed up this SQL query", "should_trigger": false }
+  {
+    "query": "make this hero section feel less generic",
+    "should_trigger": true
+  },
+  {
+    "query": "build a pricing page for my Next.js app",
+    "should_trigger": true
+  },
+  {
+    "query": "review my landing page UI",
+    "should_trigger": true
+  },
+  {
+    "query": "our dashboard looks like every AI app, fix it",
+    "should_trigger": true
+  },
+  {
+    "query": "set up design tokens and dark mode",
+    "should_trigger": true
+  },
+  {
+    "query": "pick fonts and a color palette for a bakery site",
+    "should_trigger": true
+  },
+  {
+    "query": "audit this page for WCAG 2.2 and CLS",
+    "should_trigger": true
+  },
+  {
+    "query": "polish the settings screen before launch",
+    "should_trigger": true
+  },
+  {
+    "query": "redesign the onboarding flow in Angular",
+    "should_trigger": true
+  },
+  {
+    "query": "write a DESIGN.md for this repo",
+    "should_trigger": true
+  },
+  {
+    "query": "fix this useEffect infinite loop",
+    "should_trigger": false
+  },
+  {
+    "query": "add Zod validation to the signup API route",
+    "should_trigger": false
+  },
+  {
+    "query": "write Playwright tests for login",
+    "should_trigger": false
+  },
+  {
+    "query": "design a database schema for orders",
+    "should_trigger": false
+  },
+  {
+    "query": "make a logo for my startup",
+    "should_trigger": false
+  },
+  {
+    "query": "create a slide deck about our roadmap",
+    "should_trigger": false
+  },
+  {
+    "query": "why is my Next.js build failing on Vercel",
+    "should_trigger": false
+  },
+  {
+    "query": "build a SwiftUI settings screen",
+    "should_trigger": false
+  },
+  {
+    "query": "write an HTML email newsletter template",
+    "should_trigger": false
+  },
+  {
+    "query": "speed up this SQL query",
+    "should_trigger": false
+  },
+  {
+    "query": "Design the home screen for my Expo app",
+    "should_trigger": false
+  },
+  {
+    "query": "Make my React Native app feel more native on iOS",
+    "should_trigger": false
+  }
 ]

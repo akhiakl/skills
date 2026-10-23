@@ -1,0 +1,22 @@
+[
+  { "query": "Design the home screen for my Expo app", "should_trigger": true },
+  { "query": "Make my React Native app feel more native on iOS", "should_trigger": true },
+  { "query": "Add Liquid Glass tabs to my app", "should_trigger": true },
+  { "query": "Build an onboarding flow in Expo Router", "should_trigger": true },
+  { "query": "Review my RN app's accessibility for Dynamic Type", "should_trigger": true },
+  { "query": "My Android app content goes under the nav bar, fix the layout", "should_trigger": true },
+  { "query": "Create a paywall screen for my iPhone app built with Expo", "should_trigger": true },
+  { "query": "Set up the app icon and splash screen for my Expo project", "should_trigger": true },
+  { "query": "Polish the haptics and animations in my React Native settings screen", "should_trigger": true },
+  { "query": "Write a DESIGN.md for my mobile app", "should_trigger": true },
+  { "query": "Make my website responsive on mobile browsers", "should_trigger": false },
+  { "query": "Build a landing page for my SaaS in Next.js", "should_trigger": false },
+  { "query": "Upgrade my app to Expo SDK 58", "should_trigger": false },
+  { "query": "Write a Swift native module for Expo", "should_trigger": false },
+  { "query": "Set up EAS Update channels", "should_trigger": false },
+  { "query": "Build a Flutter login screen", "should_trigger": false },
+  { "query": "Fix my SwiftUI view's state bug", "should_trigger": false },
+  { "query": "Why is my EAS build bill so high", "should_trigger": false },
+  { "query": "Add Redux Toolkit to my React Native app", "should_trigger": false },
+  { "query": "Write Detox tests for my login flow", "should_trigger": false }
+]

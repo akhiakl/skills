@@ -1,6 +1,6 @@
 ---
 name: web-design-craft
-description: Designs, builds, reviews and polishes distinctive, production-grade web UI (landing pages, marketing sites, dashboards, app screens, components) in React, Next.js, Angular, Tailwind or plain HTML/CSS. Use when the user asks to build, redesign, restyle, review, audit, critique or polish a page or component; says it looks generic, bland, AI-made or off; asks for a design system, design tokens, DESIGN.md, dark mode, responsive layout, typography or color palette; or wants Core Web Vitals or WCAG 2.2 checks on UI. Produces a design plan, tokens-first code, and a verified DESIGN.md. Do not use for backend/API work, pure state-management or data-fetching bugs, unit tests, native iOS/Android, slide decks, logos, or email templates unless a page UI is also involved.
+description: Designs, builds, reviews and polishes distinctive, production-grade web UI (landing pages, marketing sites, dashboards, app screens, components) in React, Next.js, Angular, Tailwind or plain HTML/CSS. Use when the user asks to build, redesign, restyle, review, audit, critique or polish a page or component; says it looks generic, bland, AI-made or off; asks for a design system, design tokens, DESIGN.md, dark mode, responsive layout, typography or color palette; or wants Core Web Vitals or WCAG 2.2 checks on UI. Produces a design plan, tokens-first code, and a verified DESIGN.md. Do not use for backend/API work, pure state-management or data-fetching bugs, unit tests, React Native, Expo or native iOS/Android apps (use mobile-design-craft), slide decks, logos, or email templates unless a page UI is also involved.
 license: MIT
 compatibility: Works in any Agent Skills client. Optional Node 18+ for scripts/. Browser automation optional.
 metadata:
@@ -39,7 +39,7 @@ Defaults by project type: marketing 7/5/3, product dashboard 3/3/7, docs 2/2/5, 
 - `node scripts/slop-lint.mjs [--json] [--design DESIGN.md] <paths>`: flags template defaults, banned copy, `transition: all`, lorem ipsum, off-token colors. Exit 2 on findings.
 - `node scripts/contrast.mjs DESIGN.md` or `--pair <fg> <bg>`: WCAG contrast for every `on-*` token pair, OKLCH aware. Exit 2 on failures.
 
-Paths are relative to this skill's folder. If Node is unavailable, apply `references/anti-patterns.md` and compute contrast by hand.
+Paths are relative to this skill's folder. If Node is unavailable, apply `references/core/anti-patterns-universal.md` and `references/anti-patterns-web.md` and compute contrast by hand.
 
 ## Phase 1: Discover context (always, silently, before asking anything)
 
@@ -79,13 +79,13 @@ Do not ask when the brief or repo already answers it, for small changes to an ex
 Write a compact **Design Plan** before any code:
 
 - **Concept**: one sentence tying the visual idea to this product's world (its materials, vernacular, users), not to "modern SaaS".
-- **Color**: 4 to 6 named OKLCH tokens with `on-*` pairs, light and dark. Method: `references/color.md`.
+- **Color**: 4 to 6 named OKLCH tokens with `on-*` pairs, light and dark. Method: `references/core/color.md`.
 - **Type**: one or two families with roles, modular scale (ratio 1.2 to 1.333), display tracking, body measure 65 to 75ch. Shortlist: `references/fonts.md`. Choose by brief, never by habit.
 - **Layout**: ASCII wireframe for mobile and desktop. Name the grid and where it is deliberately broken (scaled by VARIANCE).
 - **Signature moment**: the ONE memorable thing. Everything else stays quiet.
 - **Motion**: what animates and why, per `references/motion.md`, scaled by MOTION.
 
-Then **critique the plan**: "Would I produce this for any similar brief?" Check it against `references/anti-patterns.md`. Revise generic parts and say what changed. Product UIs (dashboards, settings, tables) show ambition through precision, density and consistency, not novelty: read `references/data-dense.md`.
+Then **critique the plan**: "Would I produce this for any similar brief?" Check it against `references/core/anti-patterns-universal.md` and `references/anti-patterns-web.md`. Revise generic parts and say what changed. Product UIs (dashboards, settings, tables) show ambition through precision, density and consistency, not novelty: read `references/data-dense.md`.
 
 The brief and existing brand always override this skill. If the brand already uses a "cliche" (Inter, a dark theme), keep it and earn distinctiveness through scale, composition and detail.
 
@@ -105,7 +105,7 @@ For inspiration by site type: `references/inspiration.md`. Borrow techniques, ne
 
 **Forms** follow `references/forms.md`. **Metadata, OG images and structured data** follow `references/seo-meta.md`. **Imagery and icons** follow `references/imagery.md`. **Localization** follows `references/i18n.md`.
 
-**Copy** follows `references/copy.md`: real, specific words. No lorem ipsum, no placeholder proof. Mark missing content `TODO(content): ...` and list it.
+**Copy** follows `references/core/copy.md`: real, specific words. No lorem ipsum, no placeholder proof. Mark missing content `TODO(content): ...` and list it.
 
 **Code quality:** strict TypeScript, typed props, no `any` in UI code, small composable components.
 

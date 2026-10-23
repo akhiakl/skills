@@ -1,23 +1,33 @@
 name: validate
 on: [push, pull_request]
 jobs:
-  skill:
+  skills:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - uses: astral-sh/setup-uv@v5
+      - name: Shared core in sync
+        run: node scripts/sync-shared.mjs --check
       - name: Spec validate (reference lib, from source)
-        run: uvx --from "git+https://github.com/agentskills/agentskills#subdirectory=skills-ref" skills-ref validate skills/web-design-craft
+        run: |
+          for s in skills/*/; do
+            uvx --from "git+https://github.com/agentskills/agentskills#subdirectory=skills-ref" skills-ref validate "$s"
+          done
       - name: House rules
         run: node scripts/ci-check.mjs
       - name: Script self-tests
         run: |
-          S=skills/web-design-craft/scripts
-          node $S/slop-lint.mjs evals/fixtures/slop.html > /dev/null && exit 1 || [ $? -eq 2 ]
-          node $S/contrast.mjs skills/web-design-craft/assets/DESIGN.template.md
-          node $S/contrast.mjs --pair "#777" "#fff" && exit 1 || [ $? -eq 2 ]
+          W=skills/web-design-craft/scripts
+          M=skills/mobile-design-craft/scripts
+          expect2() { "$@" > /dev/null; s=$?; [ $s -eq 2 ] || { echo "expected exit 2, got $s: $*"; exit 1; }; }
+          expect2 node $W/slop-lint.mjs evals/fixtures/slop.html
+          expect2 node $M/slop-lint.mjs evals/fixtures/mobile/slop-screen.tsx
+          node $M/slop-lint.mjs evals/fixtures/mobile/src/theme
+          node $W/contrast.mjs skills/web-design-craft/assets/DESIGN.template.md
+          node $W/contrast.mjs --hex skills/web-design-craft/assets/DESIGN.template.md
+          expect2 node $W/contrast.mjs --pair "#777" "#fff"
   plugin:
     runs-on: ubuntu-latest
     steps:

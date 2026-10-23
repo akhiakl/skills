@@ -20,3 +20,4 @@
 - Never encode meaning with color alone.
 - Gradients only when the concept calls for them; avoid purple-to-blue and cyan-on-dark defaults.
 - Tailwind v4 palettes are OKLCH already; map them to semantic tokens instead of using them raw.
+- Some runtimes do not parse `oklch()` (React Native, older email clients). Author in OKLCH, then emit hex with `node scripts/contrast.mjs --hex "oklch(...)"`.

@@ -2,16 +2,11 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions follow semver.
 
-## [1.0.0] - 2026-10-23
+## [1.0.0] - 2026-10-24
 ### Added
-- web-design-craft skill: 5-phase build workflow and core references (anti-patterns, performance, responsive and a11y, motion, copy, inspiration).
-- Modes: build, review, audit, polish, document (`references/modes/`).
-- Dials: VARIANCE, MOTION, DENSITY with defaults per project type.
-- `scripts/slop-lint.mjs` with shared `rules.json`, and `scripts/contrast.mjs` (OKLCH aware). Node 18+, zero dependencies.
-- `assets/DESIGN.template.md` in Google DESIGN.md (alpha) format.
-- References: forms, data-dense UI, fonts, color method, SEO and OG, i18n, imagery and icons, version-sensitive facts, framework notes (Angular, Tailwind v4, shadcn).
-- Evals: 7 capability cases with fixtures, 20 trigger queries.
-- CI: spec validation, house rules, script self-tests, `claude plugin validate --strict`.
-### Notes
-- Description written for trigger accuracy with explicit exclusions; spec fields `license`, `compatibility`, `metadata.version` added.
-- Verification steps are conditional and tool-neutral (no assumed browser or screenshot tool).
+- **web-design-craft**: 5-phase build workflow; modes (build, review, audit, polish, document); VARIANCE, MOTION, DENSITY dials; references for performance, responsive and a11y, motion, inspiration, forms, data-dense UI, fonts, SEO and OG, i18n, imagery, facts, and Angular, Tailwind v4 and shadcn notes.
+- **mobile-design-craft**: React Native and Expo (SDK 57 to 58) skill with the same workflow, platform-adaptive guidance (HIG and Liquid Glass, Material 3 Expressive), navigation, theming, motion and haptics, accessibility, performance, mobile copy, store assets, inspiration and device-free verification. 23 lint rules for React Native.
+- **Shared core** in `shared/`: universal anti-patterns, OKLCH color method, copy rules, Google DESIGN.md template, `slop-lint.mjs` (file-scope rules, path excludes) and `contrast.mjs` (WCAG contrast, OKLCH to hex). `scripts/sync-shared.mjs` copies it into each skill so every skill installs standalone.
+- Evals: 13 capability cases with fixtures and two trigger sets that test routing between the skills.
+- CI: shared-core drift check, spec validation, house rules, script self-tests, `claude plugin validate --strict`.
+- Claude Code plugin `design-craft` bundling both skills.

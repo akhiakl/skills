@@ -7,7 +7,8 @@ import { fileURLToPath } from "node:url";
 const HELP = `Usage: node slop-lint.mjs [--json] [--design DESIGN.md] [--ignore rule,rule] [--strict] <paths...>
 
 Scans .html .css .scss .js .jsx .ts .tsx .vue .svelte .astro .md .mdx for AI-template
-defaults, banned copy, transition: all, lorem ipsum and off-token hex colors.
+defaults, banned copy, lorem ipsum, off-token hex colors and platform rules.
+Rules come from rules.json next to this script (each skill ships its own).
 
 Options:
   --json            JSON to stdout (diagnostics go to stderr)
@@ -56,15 +57,28 @@ function walk(p, acc) {
   return acc;
 }
 const files = opt.paths.flatMap((p) => walk(p, []));
+const applies = (r, file, ext) =>
+  !(r.files === "code" && !CODE.has(ext)) && !(r.files === "copy" && !COPY.has(ext)) &&
+  !(r.excludePath && new RegExp(r.excludePath).test(file.replace(/\\/g, "/")));
 
 const findings = [];
 for (const file of files) {
   const ext = extname(file);
-  const lines = readFileSync(file, "utf8").split("\n");
+  const text = readFileSync(file, "utf8");
+  const lines = text.split("\n");
+  for (const r of rules.filter((r) => r.scope === "file" && applies(r, file, ext))) {
+    r.re.lastIndex = 0;
+    let m;
+    while ((m = r.re.exec(text))) {
+      const before = text.slice(0, m.index).split("\n");
+      findings.push({ rule: r.id, severity: r.severity, file, line: before.length, col: before.at(-1).length + 1,
+        excerpt: lines[before.length - 1].trim().slice(0, 160), fix: r.fix });
+      if (!m[0].length) r.re.lastIndex++;
+    }
+  }
   lines.forEach((line, idx) => {
     for (const r of rules) {
-      if (r.files === "code" && !CODE.has(ext)) continue;
-      if (r.files === "copy" && !COPY.has(ext)) continue;
+      if (r.scope === "file" || !applies(r, file, ext)) continue;
       r.re.lastIndex = 0;
       let m;
       while ((m = r.re.exec(line))) {

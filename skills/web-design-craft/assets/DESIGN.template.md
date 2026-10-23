@@ -71,3 +71,6 @@ States: default, hover (pointer only), focus-visible, active, disabled, loading,
 
 ## Do's and Don'ts
 Motion: durations, easing, reduced-motion fallback. Voice: three adjectives, banned words for this product. Patterns this product must avoid.
+
+## Platform (apps only)
+Stance (platform-adaptive or brand-uniform), navigation map (tabs, stacks, sheets), haptic map, Dynamic Type and font-scaling strategy, safe-area and edge-to-edge rules.

@@ -26,7 +26,7 @@ for (const name of readdirSync("skills")) {
   const lines = src.split("\n").length;
   if (lines > 500) fail(`${skillPath}: ${lines} lines, keep under 500`);
   const ver = (fm[1].match(/version:\s*"?([\d.]+)"?/) || [])[1];
-  if (plugin.name === name && ver !== plugin.version) fail(`${skillPath}: metadata.version ${ver} != plugin.json ${plugin.version}`);
+  if (ver !== plugin.version) fail(`${skillPath}: metadata.version ${ver} != plugin.json ${plugin.version}`);
 
   for (const f of walk(dir)) {
     if (!/\.(md|json|mjs)$/.test(f)) continue;
