@@ -1,6 +1,6 @@
 # Anti-patterns: defaults that make a page look generated
 
-A check, not a ban. Any item is fine if the brief or brand asks for it. Never use one because it is the default.
+A check, not a ban. Machine-checkable items live in `scripts/rules.json` and run via `scripts/slop-lint.mjs`. Any item is fine if the brief or brand asks for it. Never use one because it is the default.
 
 ## Visual looks
 - Warm cream background (near #F4F1EA) with high-contrast serif and terracotta accent (near #D97757).

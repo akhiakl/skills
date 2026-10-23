@@ -1,0 +1,17 @@
+{
+  "rules": [
+    { "id": "font-default", "severity": "warn", "files": "code", "pattern": "(font-family\\s*:[^;]*|fontFamily[^,}]*|font-\\[)['\"]?(Inter|Roboto|Arial|Open Sans|Lato|Space Grotesk|Fraunces|Instrument Serif)\\b", "flags": "i", "allowIfInDesign": true, "fix": "Choose a face from the brief (references/fonts.md) or record the choice in DESIGN.md." },
+    { "id": "gradient-purple", "severity": "error", "files": "code", "pattern": "(linear|radial|conic)-gradient\\([^)]*(purple|violet|indigo|#8b5cf6|#7c3aed|#6366f1|#a855f7)|\\bfrom-(purple|violet|indigo)-\\d", "flags": "i", "fix": "Remove the default purple/indigo gradient; use the token palette." },
+    { "id": "gradient-text", "severity": "warn", "files": "code", "pattern": "background-clip\\s*:\\s*text|\\bbg-clip-text\\b", "flags": "i", "fix": "Gradient text is a template tell; use solid color and type scale." },
+    { "id": "transition-all", "severity": "error", "files": "code", "pattern": "transition\\s*:\\s*all\\b|\\btransition-all\\b", "flags": "i", "fix": "List properties explicitly, e.g. transition: transform 200ms, opacity 200ms." },
+    { "id": "bounce-easing", "severity": "warn", "files": "code", "pattern": "cubic-bezier\\(\\s*[\\d.]+\\s*,\\s*(1\\.[0-9]*[1-9]|[2-9][\\d.]*)\\s*,|\\b(ease-)?(bounce|elastic)\\b", "flags": "i", "fix": "Use ease-out curves for UI; bounce only for drag or playful moments." },
+    { "id": "scale-zero", "severity": "warn", "files": "code", "pattern": "scale\\(\\s*0\\s*\\)|\\bscale-0\\b", "flags": "i", "fix": "Enter from scale(0.95) with opacity 0." },
+    { "id": "vh-100", "severity": "info", "files": "code", "pattern": "(?<![sdl])\\b100vh\\b|\\bh-screen\\b|\\bmin-h-screen\\b", "flags": "i", "fix": "Use 100svh or 100dvh so mobile browser bars do not jump." },
+    { "id": "zoom-disabled", "severity": "error", "files": "code", "pattern": "maximum-scale\\s*=\\s*1|user-scalable\\s*=\\s*(no|0)", "flags": "i", "fix": "Never disable zoom; use 16px inputs to avoid iOS zoom." },
+    { "id": "outline-none", "severity": "warn", "files": "code", "pattern": "outline\\s*:\\s*(none|0)\\b|\\boutline-none\\b", "flags": "i", "fix": "Keep a visible :focus-visible ring." },
+    { "id": "lorem", "severity": "error", "files": "all", "pattern": "lorem ipsum|dolor sit amet|placeholder\\.com|via\\.placeholder|John Doe|Jane Doe", "flags": "i", "fix": "Write real, specific copy or mark TODO(content)." },
+    { "id": "copy-banned", "severity": "warn", "files": "copy", "pattern": "\\b(unleash|unlock your|elevate|seamless(ly)?|effortless(ly)?|supercharge|turbocharge|empower|revolutioni[sz]e|game[- ]changer|cutting[- ]edge|next[- ]gen|state[- ]of[- ]the[- ]art|world[- ]class|take (it|your \\w+) to the next level|in today's fast[- ]paced)\\b", "flags": "i", "fix": "Replace with a concrete noun and verb specific to this product." },
+    { "id": "em-dash", "severity": "warn", "files": "copy", "pattern": "\u2014", "flags": "", "fix": "Use a period, comma or colon in UI copy." },
+    { "id": "pure-black", "severity": "info", "files": "code", "pattern": "(color|background(-color)?)\\s*:\\s*(#000\\b|#000000\\b|rgb\\(\\s*0\\s*,\\s*0\\s*,\\s*0\\s*\\))", "flags": "i", "fix": "Use a tinted near-black token." }
+  ]
+}

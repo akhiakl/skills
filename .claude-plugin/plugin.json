@@ -1,10 +1,23 @@
 {
   "name": "web-design-craft",
-  "version": "1.0.0",
-  "description": "Designs and builds distinctive, fast, responsive, accessible web pages and apps. Reads the project first, asks only what the repo can't answer, avoids AI-template looks, writes real copy, and verifies Core Web Vitals, WCAG 2.2 AA and responsiveness before finishing.",
-  "author": { "name": "Akhil K", "url": "https://github.com/akhiakl" },
+  "version": "1.1.0",
+  "description": "Designs, builds, reviews, audits and polishes distinctive, fast, responsive, accessible web UI. Reads the project first, asks only what it must, avoids AI-template looks, writes real copy, ships a slop linter and contrast checker, and verifies Core Web Vitals and WCAG 2.2 AA.",
+  "author": {
+    "name": "Akhil K",
+    "url": "https://github.com/akhiakl"
+  },
   "homepage": "https://github.com/akhiakl/skills",
   "repository": "https://github.com/akhiakl/skills",
   "license": "MIT",
-  "keywords": ["design", "frontend", "web", "ui", "ux", "react", "nextjs", "accessibility", "performance"]
+  "keywords": [
+    "design",
+    "frontend",
+    "web",
+    "ui",
+    "ux",
+    "react",
+    "nextjs",
+    "accessibility",
+    "performance"
+  ]
 }

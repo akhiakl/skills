@@ -1,0 +1,95 @@
+{
+  "skill_name": "web-design-craft",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build a landing page for a Kyoto ceramics studio's online shop. Fresh Next.js App Router project with Tailwind v4, no existing design.",
+      "files": [],
+      "expected_output": "Context Read with dials, short questions or stated assumptions, a Design Plan, tokens-first page, DESIGN.md, verification report.",
+      "expectations": [
+        "DESIGN.md exists and its on-* pairs pass scripts/contrast.mjs",
+        "slop-lint reports 0 errors on the generated app/ and components/ folders",
+        "No Inter, Roboto, Space Grotesk, Fraunces or Instrument Serif unless justified in DESIGN.md",
+        "CSS contains a prefers-reduced-motion rule",
+        "Exactly one h1 on the page",
+        "Every img or next/image has width and height or fill with sizes",
+        "Copy names ceramics, Kyoto or the studio specifically; no lorem ipsum, no invented testimonials"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Redesign this pricing section, it looks generic.",
+      "files": ["evals/fixtures/pricing-generic.tsx"],
+      "expected_output": "Context Read, critique of the template defaults, redesigned component using tokens.",
+      "expectations": [
+        "slop-lint findings on the file drop by at least 80% versus the fixture",
+        "Tokens are defined before they are used in the component",
+        "The three-identical-cards layout is changed or its choice is justified",
+        "CTA labels name the outcome instead of 'Get started' for every tier"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Review this checkout form.",
+      "files": ["evals/fixtures/checkout-form.html"],
+      "expected_output": "Before | After | Why table with locations, no code rewrite.",
+      "expectations": [
+        "Output contains a Before | After | Why table",
+        "Flags missing labels (placeholder used as label)",
+        "Flags blocked paste on the CVC field",
+        "Flags the div used as a button",
+        "Flags small target size on the coupon link",
+        "Flags the vague 'Invalid input' error",
+        "Does not rewrite the file unless asked"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "In this Angular standalone app, add a dashboard home showing orders, revenue and a recent orders table.",
+      "files": [],
+      "expected_output": "Dashboard using Angular conventions and data-dense guidance.",
+      "expectations": [
+        "Uses @defer for below-the-fold widgets",
+        "Uses NgOptimizedImage for any images",
+        "Numbers use tabular-nums",
+        "Table has loading, empty and error states",
+        "Context Read states dials near 3/3/7"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Add dark mode to this Tailwind v4 site.",
+      "files": [],
+      "expected_output": "Token-level dark theme with verified contrast.",
+      "expectations": [
+        "Dark values defined as token overrides (@theme variables or CSS custom properties), not per-component dark: classes everywhere",
+        "Dark surface is not pure #000",
+        "color-scheme is set",
+        "All dark on-* pairs pass contrast"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "make my site look better",
+      "files": [],
+      "expected_output": "Discovery first, then at most 5 batched questions with defaults.",
+      "expectations": [
+        "Inspects the repo before asking",
+        "Asks 5 or fewer questions, each with a proposed default",
+        "Does not ask anything answerable from package.json or existing files"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Document our existing design system as DESIGN.md.",
+      "files": ["evals/fixtures/existing-styles.css"],
+      "expected_output": "DESIGN.md matching the fixture values, no visual changes.",
+      "expectations": [
+        "DESIGN.md colors correspond to the fixture values (#fbfaf7, #1f2328, #0f5c4d, #ffffff)",
+        "Typography lists Source Serif 4",
+        "Notes the radius inconsistency (10px vs 14px) and the near-duplicate gray (#6b7280 vs #6b7281)",
+        "existing-styles.css is unchanged"
+      ]
+    }
+  ]
+}

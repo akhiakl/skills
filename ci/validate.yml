@@ -1,0 +1,28 @@
+name: validate
+on: [push, pull_request]
+jobs:
+  skill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: astral-sh/setup-uv@v5
+      - name: Spec validate (reference lib, from source)
+        run: uvx --from "git+https://github.com/agentskills/agentskills#subdirectory=skills-ref" skills-ref validate skills/web-design-craft
+      - name: House rules
+        run: node scripts/ci-check.mjs
+      - name: Script self-tests
+        run: |
+          S=skills/web-design-craft/scripts
+          node $S/slop-lint.mjs evals/fixtures/slop.html > /dev/null && exit 1 || [ $? -eq 2 ]
+          node $S/contrast.mjs skills/web-design-craft/assets/DESIGN.template.md
+          node $S/contrast.mjs --pair "#777" "#fff" && exit 1 || [ $? -eq 2 ]
+  plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm i -g @anthropic-ai/claude-code
+      - run: claude plugin validate . --strict
