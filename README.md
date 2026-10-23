@@ -51,7 +51,7 @@ evals/              capability cases, trigger queries, fixtures
 scripts/ci-check.mjs  house rules (spec fields, size, links, no em dashes, version sync)
 ```
 
-Run `node scripts/ci-check.mjs` before pushing. To enable CI, move `ci/validate.yml` to `.github/workflows/validate.yml`; it runs the Agent Skills reference validator, these house rules, script self-tests and `claude plugin validate --strict`. See [evals/README.md](evals/README.md) for running evals and [CHANGELOG.md](CHANGELOG.md) for history.
+Run `node scripts/ci-check.mjs` before pushing. CI (`.github/workflows/validate.yml`) runs the Agent Skills reference validator, these house rules, script self-tests and `claude plugin validate --strict`. See [evals/README.md](evals/README.md) for running evals and [CHANGELOG.md](CHANGELOG.md) for history.
 
 ## License
 
