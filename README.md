@@ -6,7 +6,7 @@ Agent Skills by [Akhil K](https://github.com/akhiakl). Each skill is a folder wi
 
 | Skill | Version | What it does |
 |---|---|---|
-| [web-design-craft](skills/web-design-craft) | 1.1.0 | Designs, builds, reviews, audits and polishes distinctive web UI. Reads the project first, asks only what it must, avoids AI-template looks, writes real copy, and verifies Core Web Vitals, WCAG 2.2 AA and responsiveness. Ships a slop linter and an OKLCH contrast checker. |
+| [web-design-craft](skills/web-design-craft) | 1.0.0 | Designs, builds, reviews, audits and polishes distinctive web UI. Reads the project first, asks only what it must, avoids AI-template looks, writes real copy, and verifies Core Web Vitals, WCAG 2.2 AA and responsiveness. Ships a slop linter and an OKLCH contrast checker. |
 
 ### web-design-craft at a glance
 - **Modes:** build, review, audit, polish, document.
@@ -41,7 +41,7 @@ npx skills add akhiakl/skills --skill web-design-craft -a claude-code
 | Codex, Gemini CLI, Cursor, VS Code Copilot | `.agents/skills/` |
 | GitHub Copilot | `.github/skills/` |
 
-Pin a version for long projects: `npx skills add akhiakl/skills#v1.1.0`.
+Pin a version for long projects: `npx skills add akhiakl/skills#v1.0.0`.
 
 ## Development
 

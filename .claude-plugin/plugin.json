@@ -1,6 +1,6 @@
 {
   "name": "web-design-craft",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "description": "Designs, builds, reviews, audits and polishes distinctive, fast, responsive, accessible web UI. Reads the project first, asks only what it must, avoids AI-template looks, writes real copy, ships a slop linter and contrast checker, and verifies Core Web Vitals and WCAG 2.2 AA.",
   "author": {
     "name": "Akhil K",

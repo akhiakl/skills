@@ -5,7 +5,7 @@ license: MIT
 compatibility: Works in any Agent Skills client. Optional Node 18+ for scripts/. Browser automation optional.
 metadata:
   author: akhiakl
-  version: "1.1.0"
+  version: "1.0.0"
 ---
 
 # Web Design Craft
