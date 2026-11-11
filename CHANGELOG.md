@@ -2,6 +2,10 @@
 
 Format: [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versions follow semver.
 
+## [Unreleased]
+### Added
+- **pr-review** plugin and skill (0.1.0): reviews a GitHub PR from a URL, posts a verdict badge and severity-badged inline comments, re-reviews only new commits, drops merged PRs from its tracked list.
+
 ## [1.0.0] - 2026-10-24
 ### Added
 - **web-design-craft**: 5-phase build workflow; modes (build, review, audit, polish, document); VARIANCE, MOTION, DENSITY dials; references for performance, responsive and a11y, motion, inspiration, forms, data-dense UI, fonts, SEO and OG, i18n, imagery, facts, and Angular, Tailwind v4 and shadcn notes.

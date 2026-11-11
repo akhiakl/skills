@@ -12,6 +12,11 @@
       "name": "design-craft",
       "source": "./",
       "description": "Web and mobile (React Native, Expo) design skills with a shared core, slop linter and contrast checker."
+    },
+    {
+      "name": "pr-review",
+      "source": "./plugins/pr-review",
+      "description": "Review GitHub PRs from a URL and post badge-styled reviews; re-reviews cover only new commits."
     }
   ]
 }
