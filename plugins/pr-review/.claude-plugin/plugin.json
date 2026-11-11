@@ -1,0 +1,10 @@
+{
+  "name": "pr-review",
+  "version": "0.1.0",
+  "description": "Token-lean GitHub PR reviews: verdict badge, severity-badged inline comments, incremental re-reviews, merged PRs pruned. Works from a PR URL, no local clone needed.",
+  "author": { "name": "Akhil K", "url": "https://github.com/akhiakl" },
+  "homepage": "https://github.com/akhiakl/skills",
+  "repository": "https://github.com/akhiakl/skills",
+  "license": "MIT",
+  "keywords": ["code-review", "github", "pull-request", "review"]
+}

@@ -8,6 +8,7 @@ Agent Skills by [Akhil K](https://github.com/akhiakl). Each skill is a folder wi
 |---|---|---|
 | [web-design-craft](skills/web-design-craft) | Websites and web apps: React, Next.js, Angular, Tailwind, shadcn, plain HTML/CSS | 1.0.0 |
 | [mobile-design-craft](skills/mobile-design-craft) | React Native and Expo apps for iOS and Android | 1.0.0 |
+| [pr-review](plugins/pr-review) | Reviewing GitHub PRs from a URL: verdict badge, P0-P3 inline comments, incremental re-reviews | 0.1.0 |
 
 Both skills follow the same workflow: read the project silently, ask at most 5 questions with defaults, write a Design Plan (OKLCH tokens, type, wireframes, one signature moment) and critique it against anti-patterns, build tokens-first, then verify and write a `DESIGN.md` in [Google's DESIGN.md format](https://github.com/google-labs-code/design.md).
 
@@ -34,6 +35,12 @@ npx skills add akhiakl/skills -g                               # all projects
 ```
 /plugin marketplace add akhiakl/skills
 /plugin install design-craft@akhiakl-skills
+```
+
+**pr-review** (needs `gh` logged in and `python3`; no local clone needed, `/pr-review <PR URL | owner/repo#N | N>`):
+```
+/plugin install pr-review@akhiakl-skills            # Claude Code plugin
+npx skills add akhiakl/skills --skill pr-review     # or as a plain skill, any agent
 ```
 
 **Manual:** copy `skills/<name>/` into the skills folder your agent reads:
